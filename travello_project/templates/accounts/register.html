@@ -8,5 +8,15 @@
 </head>
 <body>
     <h1>Registration</h1>
+    <form action="register" method="post">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder="Enter your first name"> <br>
+        <input type="text" name="last_name" placeholder="Enter your last name"><br>
+        <input type="text" name="username" placeholder="Enter your user name"><br>
+        <input type="email" name="email" placeholder="Enter your email"><br>
+        <input type="password" name="password" placeholder="Enter Password"><br>
+        <input type="password" name="con_password" placeholder="Confirm Password"><br>
+        <input type="submit" value="Register">
+    </form>
 </body>
 </html>
