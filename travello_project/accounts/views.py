@@ -10,9 +10,20 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
         con_password = request.POST['con_password']
+        #verify user information
+        if password == con_password:
+            if User.objects.filter(username=user_name).exists():
+                print('username already taken')
+            elif User.objects.filter(email=email).exists():
+                print('email already exists')
+            else:
+                user = User.objects.create_user(username=user_name, password=password, email=email, first_name=first_name, last_name=last_name)
+                user.save()
+                print('user created')
+        else:
+            print('password not matching ..')
 
-        user = User.objects.create_user(username=user_name, password=password, email=email, first_name=first_name, last_name=last_name)
-        user.save()
+        
         return redirect('/')
     else:
         return render(request, 'accounts/register.html')
