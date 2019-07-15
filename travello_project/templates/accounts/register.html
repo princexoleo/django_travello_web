@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Registration</h1>
+    <a href='/'> Back </a>
     <form action="register" method="post">
         {% csrf_token %}
         <input type="text" name="first_name" placeholder="Enter your first name"> <br>
@@ -18,5 +19,11 @@
         <input type="password" name="con_password" placeholder="Confirm Password"><br>
         <input type="submit" value="Register">
     </form>
+
+    <div>
+        {% for message in messages  %}
+         <h3> {{ message }} </h3>
+        {% endfor %}
+    </div>
 </body>
 </html>
