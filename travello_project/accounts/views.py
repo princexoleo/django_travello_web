@@ -48,3 +48,6 @@ def register(request):
         return render(request, 'accounts/register.html')
     
 
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
